@@ -3,10 +3,13 @@ const path = require('path')
 const fromRoot = d => path.join(__dirname, d)
 
 module.exports = {
-  roots: [fromRoot('apps/next-app'), fromRoot('apps/server')],
   resetMocks: true,
   coveragePathIgnorePatterns: [],
-  collectCoverageFrom: ['<rootDir>/src/**/*.{js,ts,tsx}'],
+  collectCoverageFrom: [
+    '**/*.{js,ts,tsx}',
+    '!**/node_modules/**',
+    '!**/dist/**',
+  ],
   coverageThreshold: null,
   testEnvironment: 'jsdom',
   transform: {
